@@ -1,0 +1,29 @@
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+
+    <h1>Welcome! {{ request.user.first_name }}</h1>
+
+
+    <h2>My Tasks</h2>
+
+    {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <h3>Title: {{ task.title }}</h3>
+                    <p>Description: {{ task.description}}</p>
+                    <p>Completed? {{ task.completed }}</p>
+                    <p>Created at: {{ task.created_at }}</p>
+                    <form method="POST" action="{% url 'delete' task.id %}" class="form-delete">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-delete">Delete Task</button>
+                    </form>
+                </li>
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <a href="{% url 'logout' %}" class = "btn-submit"> Log out</a>
+    <a href="{% url 'add' %}" class = "btn-submit"> Add Tasks</a>
+{% endblock %}
