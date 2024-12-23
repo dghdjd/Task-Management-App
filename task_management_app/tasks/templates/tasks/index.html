@@ -1,6 +1,14 @@
 {% extends "tasks/layout.html" %}
 
 {% block body %}
+    <script>
+        function reconfirm(taskId, taskTitle){
+            const confirmed = confirm(`Are you sure you want to delete the task: ${taskTitle}`)
+            if(confirmed){
+                document.getElementById(`delete-form-${taskId}`).submit()
+            }
+        }
+    </script>
 
     <h1>Welcome! {{ request.user.first_name }}</h1>
 
@@ -15,9 +23,12 @@
                     <p>Description: {{ task.description}}</p>
                     <p>Completed? {{ task.completed }}</p>
                     <p>Created at: {{ task.created_at }}</p>
-                    <form method="POST" action="{% url 'delete' task.id %}" class="form-delete">
+
+                    <a href="{% url 'update' task.id %}" class = "btn-update"> Edit Task</a>
+
+                    <form id= "delete-form-{{ task.id }}" method="POST" action="{% url 'delete' task.id %}" class="form-delete">
                         {% csrf_token %}
-                        <button type="submit" class="btn-delete">Delete Task</button>
+                        <button type="button" class="btn-delete" onclick="reconfirm({{ task.id }}, '{{ task.title }}')">Delete Task</button>
                     </form>
                 </li>
 

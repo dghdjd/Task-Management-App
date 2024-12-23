@@ -24,10 +24,10 @@
     text-align: left;
 }
 
-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+/*form label {*/
+/*    margin-bottom: 50px;*/
+/*    font-weight: bold;*/
+/*}*/
 
 form input[type="text"],
 form input[type="email"],
@@ -37,6 +37,8 @@ form input[type="password"] {
     border-radius: 5px;
     width: 100%;
 }
+
+
 
 .btn-submit {
     background-color: #007bff;
@@ -48,14 +50,6 @@ form input[type="password"] {
     font-size: 16px;
     text-decoration: none;
     display: inline-block;
-}
-
-.btn-submit:hover {
-    background-color: #0056b3;
-}
-
-.register {
-    text-align: center;
 }
 
 .btn-delete {
@@ -70,6 +64,42 @@ form input[type="password"] {
     display: inline-block;
 }
 
-.add-task {
-
+.btn-update {
+    background-color: yellowgreen;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
 }
+
+.btn-submit:hover{
+    background-color: #0056b3;
+}
+.btn-delete:hover{
+    background-color: #960f28;
+}
+.btn-update:hover{
+    background-color: #78961e;
+}
+
+.register {
+    text-align: center;
+}
+
+.b1{
+    background-color: #48ff00;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
