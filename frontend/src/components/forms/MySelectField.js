@@ -8,12 +8,7 @@ import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import {Controller} from "react-hook-form";
 
 export default function MySelectField(props) {
-    const [age, setAge] = React.useState('');
     const {label, name, control, width} = props
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-
     return (
         <Box sx={{width:{width}}}>
             <FormControl fullWidth>
@@ -27,15 +22,15 @@ export default function MySelectField(props) {
                                  formState
                              }) => (
                         <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={age}
+                            labelId={`${name}-label`}
+                            id={`${name}-select`}
+                            value={value || ''}
                             label={label}
-                            onChange={handleChange}
+                            onChange={onChange}
 
                         >
-                            <MenuItem value={10}>In Progress</MenuItem>
-                            <MenuItem value={20}>Completed</MenuItem>
+                            <MenuItem value={"In Progress"}>In Progress</MenuItem>
+                            <MenuItem value={"Completed"}>Completed</MenuItem>
                         </Select>
                     )
 

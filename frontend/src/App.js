@@ -4,7 +4,7 @@ import {Routes, Route, Navigate, useNavigate} from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Create from './components/Create';
-// import Edit from './components/Edit';
+import Edit from './components/Edit';
 // import Delete from './components/Delete';
 import Login from './components/Login';
 import Register from './components/Register'
@@ -49,6 +49,7 @@ function App() {
                                         <Route path="" element={<Home/>}/>
                                         <Route path="/about" element={<About/>}/>
                                         <Route path="/create" element={<Create/>}/>
+                                        <Route path="/edit/:id" element={<Edit/>}/>
                                     </Routes>
                                 }
                             />

@@ -8,6 +8,7 @@ import MyMultiLineField from "./forms/MyMultiLineField";
 import {useForm} from "react-hook-form";
 import Dayjs from "dayjs";
 import AxiosInstance from "./Axios";
+import {useNavigate} from "react-router-dom";
 
 
 const Create = () =>{
@@ -17,18 +18,23 @@ const Create = () =>{
         description: '',
         due_date:null
     }
+    const navigate = useNavigate()
     const{handleSubmit, reset, setValue, control} = useForm({defaultValues})
     const submission = (data) => {
 
-        const DueDate = data.due_date ? (data.due_date["$d"]).format("YYYY-MM-DD") : null
+        const DueDate = data.due_date ? Dayjs(data.due_date["$d"]).format("YYYY-MM-DD") : null
         AxiosInstance.post( 'api/tasks/', {
             title: data.title,
             description: data.description,
-            due_date: DueDate
+            due_date: DueDate,
+            status: data.status
         }).then((res) =>{
             if(res.status === 201) alert("MyTask created!")
             else alert("Failed to create the task.")
-        }).catch((error) => console.log(error))
+        }).catch((error) => {
+            console.log(error)
+            navigate("/login")
+        })
     }
 
 
@@ -65,6 +71,14 @@ const Create = () =>{
                     <MyDatePickerField
                         label="Due Date"
                         name="due_date"
+                        control={control}
+                        width={'30%'}
+                    />
+                </Box>
+                <Box sx={{ marginBottom: '30px', display: 'flex', alignItems: 'flex-start' }}>
+                    <MySelectField
+                        label="Status"
+                        name="status"
                         control={control}
                         width={'30%'}
                     />
