@@ -76,7 +76,6 @@ const Home = () => {
     return (
         <div>
             <h2>Tasks:</h2>
-            {/*{tasks.map((task) => <MyTask task={task} deleteTask={deleteTask} key={task.id}/>)}*/}
             <MaterialReactTable
                 columns={columns}
                 data={tasks}
@@ -86,9 +85,6 @@ const Home = () => {
                         <IconButton
                             color="secondary"
                             component={Link} to={`edit/${row.original.id}`}
-                            // onClick={() => {
-                            //     table.setEditingRow(row);
-                            // }}
                         >
                             <EditIcon/>
 

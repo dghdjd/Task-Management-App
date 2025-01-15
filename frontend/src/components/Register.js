@@ -66,7 +66,6 @@ const Register = ({handleLogout}) => {
                     <Typography variant="h4" component="h1" sx={{fontWeight: 'bold', mb: 3, textAlign: 'center'}}>
                         Register
                     </Typography>
-                    <Link to="/Login" className="register-link">Go Back</Link>
 
                     <Box sx={{marginBottom: '10px', display: 'flex', alignItems: 'center'}}>
                         <MyTextField

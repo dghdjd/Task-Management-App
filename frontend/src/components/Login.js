@@ -42,6 +42,7 @@ const Login = ({setAuthToken}) => {
 
     return (
         <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh'}}>
+
             <Box sx={{
                 display: 'flex',
                 width: '30%',
@@ -50,6 +51,10 @@ const Login = ({setAuthToken}) => {
                 flexDirection: 'column',
                 borderRadius: 4
             }}>
+                <Typography variant="h4" component="h1" sx={{fontWeight: 'bold', mb: 3, textAlign: 'center'}}>
+                        Task Management App
+                    </Typography>
+
                 <form onSubmit={handleSubmit(submission)}>
 
                     <Typography variant="h4" component="h1" sx={{fontWeight: 'bold', mb: 3, textAlign: 'center'}}>
